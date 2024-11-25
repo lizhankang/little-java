@@ -8,7 +8,6 @@
         <artifactId>little-java</artifactId>
         <version>1.0.0</version>
     </parent>
-    <groupId>com.boom</groupId>
     <artifactId>debug-exercise</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>

@@ -48,8 +48,7 @@ public class SignHandler {
     public static PrivateKey getPrivateKey(String filePath) throws Exception {
 
         String privateKeyContent = readKeyContent(filePath);
-
-        byte[] keyBytes = Base64.getDecoder().decode(privateKeyContent.getBytes());
+        byte[] keyBytes = Base64.getDecoder().decode(privateKeyContent);
 
         PrivateKey privateKey;
 
@@ -96,8 +95,6 @@ public class SignHandler {
         String privateKeyPath = "D:\\system_dirs_replace\\文档\\poems\\prod_clientPriKey.pem";
         return sign(data, privateKeyPath, SHA256WithRSA);
     }
-
-
 
 
 
