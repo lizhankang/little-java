@@ -22,7 +22,8 @@ public class SignHandler {
      */
     public static String readKeyContent(String filePath) throws IOException {
         StringBuilder keyBuilder = new StringBuilder();
-        try (FileReader reader = new FileReader(new File(filePath), StandardCharsets.UTF_8)) {
+//        try (FileReader reader = new FileReader(new File(filePath), StandardCharsets.UTF_8)) {
+        try (FileReader reader = new FileReader(filePath)) {
             char[] buffer = new char[1024];
             int numRead;
             while ((numRead = reader.read(buffer)) != -1) {
@@ -32,7 +33,6 @@ public class SignHandler {
 
         // 获取pem文件Content
         String keyContent = keyBuilder.toString();
-//        System.out.println(keyContent);
 
         // 使用正则表达式去除密钥文件的头部和尾部标记
         keyContent = keyContent.replaceAll("-----BEGIN (.*) KEY-----", "")
@@ -92,7 +92,8 @@ public class SignHandler {
     }
 
     public static String sign(String data) {
-        String privateKeyPath = "D:\\system_dirs_replace\\文档\\poems\\prod_clientPriKey.pem";
+//        String privateKeyPath = "D:\\system_dirs_replace\\文档\\poems\\prod_clientPriKey.pem";
+        String privateKeyPath = "/Users/lizhankang/Documents/shouqianba/pems/lizhankang/client/priKey.pem";
         return sign(data, privateKeyPath, SHA256WithRSA);
     }
 

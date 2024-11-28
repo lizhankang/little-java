@@ -25,12 +25,12 @@ public class JavaCoreClass {
 
         // 快速将一个字符串列表 拼接为 一个字符串
         String[] names = {"Bob", "Alice", "Grace"};
-        var s2 = String.join(", ", names);
+        String s2 = String.join(", ", names);
 
 
         // 快速将一个字符串 拼接为 指定开头与结尾 的字符串
         String[] names1 = {"Bob", "Alice", "Grace"};
-        var sj = new StringJoiner(", ", "Hello ", "!");
+        StringJoiner sj = new StringJoiner(", ", "Hello ", "!");
         for (String name : names1) {
             sj.add(name);
         }
@@ -38,7 +38,7 @@ public class JavaCoreClass {
 
         // 快速的将一个字符串数组 拼接为 无拼接符的新字符串
         String[] names3 = {"Bob", "Alice", "Grace"};
-        var sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
         sb.append("Hello ");
         for (String name : names3) {
             sb.append(name).append(", ");

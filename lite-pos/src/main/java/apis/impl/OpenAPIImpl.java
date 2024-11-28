@@ -9,6 +9,15 @@ import com.alibaba.fastjson.serializer.SerializerFeature;
 
 
 public class OpenAPIImpl implements OpenAPI {
+
+    private String domainCode;
+    public OpenAPIImpl() {
+    }
+
+    public OpenAPIImpl(String domainCode) {
+        this.domainCode = domainCode;
+    }
+
     @Override
     public void purchase(JSONObject body) {
         String url = "https://vapi.shouqianba.com/api/lite-pos/v1/sales/purchase";
@@ -49,6 +58,14 @@ public class OpenAPIImpl implements OpenAPI {
         data.putAll(body);
         String response = KApi.post(url, data);
         System.out.println(JSON.toJSONString(JSON.parseObject(response), SerializerFeature.PrettyFormat));
+    }
+
+    public String getDomainCode() {
+        return domainCode;
+    }
+
+    public void setDomainCode(String domainCode) {
+        this.domainCode = domainCode;
     }
 }
 

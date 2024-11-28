@@ -1,0 +1,31 @@
+{
+  "name": "resources",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts":
+  {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository":
+  {
+    "type": "git",
+    "url": "https://github.com/lizhankang/little-java.git"
+  },
+  "private": true,
+  "dev":
+  {
+    "domain": "https://kabu-apisix.iwosai.com",
+    "appid": "28lpm3781001"
+  },
+  "prod":
+  {
+    "domain": "https://vapi-s.shouqianba.com",
+    "appid": "28lpm0000002"
+  },
+  "lulu":
+  {
+    "domain": "https://kabu-apisix.iwosai.com",
+    "appid": "28lp467052260"
+  }
+}
