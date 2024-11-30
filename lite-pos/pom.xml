@@ -24,6 +24,12 @@
             <artifactId>utils</artifactId>
             <version>1.0.0</version>
         </dependency>
+        <dependency>
+            <groupId>com.boom</groupId>
+            <artifactId>debug-exercise</artifactId>
+            <version>1.0.0</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
 </project>

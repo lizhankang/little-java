@@ -1,5 +1,6 @@
 package apis.impl;
 
+import IO.ResourceReader;
 import apis.OpenAPI;
 import com.alibaba.fastjson.JSONObject;
 import org.junit.jupiter.api.BeforeEach;
@@ -35,5 +36,10 @@ class OpenAPIImplTest {
         body.put("brand_code", "700001");
         body.put("order_sn", "7903247729055347");
         this.openAPI.orderQuery(body);
+    }
+
+    @Test
+    void readFile() {
+        ResourceReader.readFile("pems/priKey.pem");
     }
 }
