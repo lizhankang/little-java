@@ -7,6 +7,9 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 
 public class OpenAPIImpl implements OpenAPI {
 
@@ -42,6 +45,18 @@ public class OpenAPIImpl implements OpenAPI {
         data.put("reflect", "Order from java");
         data.put("disposable", "0");
         data.put("expire_time", "120");
+
+        ArrayList<JSONObject> items = new ArrayList<>();
+        JSONObject item1 = new JSONObject();
+        item1.put("item_desc", "default");
+        item1.put("item_price", "default");
+        item1.put("item_qty", "default");
+        item1.put("remark", "default");
+        item1.put("sales_price", "default");
+        item1.put("type", "default");
+        items.add(item1);
+        JSONObject item2 = new JSONObject();
+        data.put("items", items);
         data.putAll(body);
         String response = KApi.post(url, data);
         System.out.println(JSON.toJSONString(JSON.parseObject(response), SerializerFeature.PrettyFormat));
@@ -58,6 +73,26 @@ public class OpenAPIImpl implements OpenAPI {
         data.putAll(body);
         String response = KApi.post(url, data);
         System.out.println(JSON.toJSONString(JSON.parseObject(response), SerializerFeature.PrettyFormat));
+    }
+
+    /**
+     * @param body
+     */
+    @Override
+    public void iPay(JSONObject body) {
+        String url = "https://vapi.shouqianba.com/api/lite-pos/v1/sales/ipay";
+
+        JSONObject data = new JSONObject();
+    }
+
+    /**
+     * @param body
+     */
+    @Override
+    public void Refund(JSONObject body) {
+        String url = "https://vapi.shouqianba.com/api/lite-pos/v1/sales/refund";
+
+        JSONObject data = new JSONObject();
     }
 
     public String getDomainCode() {
