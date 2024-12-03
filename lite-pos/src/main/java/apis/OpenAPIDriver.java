@@ -2,7 +2,7 @@ package apis;
 
 import com.alibaba.fastjson.JSONObject;
 
-public interface OpenAPI {
+public interface OpenAPIDriver {
 
     public void purchase(JSONObject body);
 
@@ -11,4 +11,6 @@ public interface OpenAPI {
     public void iPay(JSONObject body);
 
     public void Refund(JSONObject body);
+
+    public void authCodeQuery(JSONObject body);
 }

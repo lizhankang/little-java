@@ -1,6 +1,6 @@
 package apis.impl;
 
-import apis.OpenAPI;
+import apis.OpenAPIDriver;
 import httpClient.KApi;
 import tool.CommonTools;
 import com.alibaba.fastjson.JSON;
@@ -8,16 +8,15 @@ import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 
-public class OpenAPIImpl implements OpenAPI {
+public class OpenAPIDriverImpl implements OpenAPIDriver {
 
     private String domainCode;
-    public OpenAPIImpl() {
+    public OpenAPIDriverImpl() {
     }
 
-    public OpenAPIImpl(String domainCode) {
+    public OpenAPIDriverImpl(String domainCode) {
         this.domainCode = domainCode;
     }
 
@@ -93,6 +92,24 @@ public class OpenAPIImpl implements OpenAPI {
         String url = "https://vapi.shouqianba.com/api/lite-pos/v1/sales/refund";
 
         JSONObject data = new JSONObject();
+    }
+
+    /**
+     * @param body
+     */
+    @Override
+    public void authCodeQuery(JSONObject body) {
+        String url = "https://vapi.shouqianba.com/api/lite-pos/v1/utility/authcode/query";
+
+        JSONObject data = new JSONObject();
+        data.put("request_id", CommonTools.generateUniqueNumber(12));
+        data.put("brand_code", "999888");
+        data.put("store_sn", "LPK001");
+        data.put("workstation_sn", "01");
+        data.put("dynamic_id", "");
+        data.putAll(body);
+        String response = KApi.post(url, data);
+        System.out.println(JSON.toJSONString(JSON.parseObject(response), SerializerFeature.PrettyFormat));
     }
 
     public String getDomainCode() {

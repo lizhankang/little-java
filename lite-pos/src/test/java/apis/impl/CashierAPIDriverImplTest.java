@@ -1,28 +1,26 @@
 package apis.impl;
 
-import apis.CashierAPI;
+import apis.CashierAPIDriver;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-class CashierAPIImplTest {
-    CashierAPI cashierAPI;
+class CashierAPIDriverImplTest {
+    CashierAPIDriver cashierAPIDriver;
 
     @BeforeEach
     public void setUp() {
-        this.cashierAPI = new CashierAPIImpl();
+        this.cashierAPIDriver = new CashierAPIDriverImpl();
     }
 
     @AfterEach
     public void tearDown() {
-        this.cashierAPI = null;
+        this.cashierAPIDriver = null;
     }
 
     @Test
     void orderDetail() {
         String orderToken = "";
-        this.cashierAPI.orderDetail(orderToken);
+        this.cashierAPIDriver.orderDetail(orderToken);
     }
 }

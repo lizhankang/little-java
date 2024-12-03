@@ -1,5 +1,5 @@
 package apis;
 
-public interface CashierAPI {
+public interface CashierAPIDriver {
     public void orderDetail(String order_token);
 }

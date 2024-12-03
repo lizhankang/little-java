@@ -1,25 +1,25 @@
 package apis.impl;
 
 import IO.ResourceReader;
-import apis.OpenAPI;
+import apis.OpenAPIDriver;
 import com.alibaba.fastjson.JSONObject;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 
-class OpenAPIImplTest {
+class OpenAPIDriverImplTest {
 
-    OpenAPI openAPI;
+    OpenAPIDriver openAPIDriver;
 
     @BeforeEach
     public void setUp() {
-        this.openAPI = new OpenAPIImpl();
+        this.openAPIDriver = new OpenAPIDriverImpl();
     }
 
     @AfterEach
     public void tearDown() {
-        this.openAPI = null;
+        this.openAPIDriver = null;
     }
 
     @Test
@@ -27,7 +27,7 @@ class OpenAPIImplTest {
         JSONObject body = new JSONObject();
         body.put("brand_code", "700001");
         body.put("store_sn", "li-pu-01");
-        this.openAPI.purchase(body);
+        this.openAPIDriver.purchase(body);
     }
 
     @Test
@@ -35,11 +35,19 @@ class OpenAPIImplTest {
         JSONObject body = new JSONObject();
         body.put("brand_code", "700001");
         body.put("order_sn", "7903247729055347");
-        this.openAPI.orderQuery(body);
+        this.openAPIDriver.orderQuery(body);
     }
 
     @Test
     void readFile() {
         ResourceReader.readFile("pems/priKey.pem");
+    }
+
+    @Test
+    void authCodeQuery() {
+        JSONObject body = new JSONObject();
+        body.put("brand_code", "999888");
+        body.put("dynamic_id", "7903247729055347");
+        this.openAPIDriver.authCodeQuery(body);
     }
 }
