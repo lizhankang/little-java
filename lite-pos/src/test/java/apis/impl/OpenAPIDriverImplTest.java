@@ -47,7 +47,7 @@ class OpenAPIDriverImplTest {
     void authCodeQuery() {
         JSONObject body = new JSONObject();
         body.put("brand_code", "999888");
-        body.put("dynamic_id", "7903247729055347");
+        body.put("dynamic_id", "43785657515055965062");
         this.openAPIDriver.authCodeQuery(body);
     }
 }

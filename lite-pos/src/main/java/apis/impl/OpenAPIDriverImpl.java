@@ -70,6 +70,8 @@ public class OpenAPIDriverImpl implements OpenAPIDriver {
         data.put("brand_code", "700001");
         data.put("order_sn", "7903247764886695");
         data.putAll(body);
+        System.out.println(url);
+        System.out.println(JSON.toJSONString(data, SerializerFeature.PrettyFormat));
         String response = KApi.post(url, data);
         System.out.println(JSON.toJSONString(JSON.parseObject(response), SerializerFeature.PrettyFormat));
     }
