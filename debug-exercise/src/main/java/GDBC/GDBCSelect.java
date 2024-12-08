@@ -7,11 +7,11 @@ import java.sql.*;
 
 public class GDBCSelect {
     public static void main(String[] args) throws SQLException {
-//        connectDatabase();
-        connectDatabase2();
+//        select1();
+        select2();
     }
 
-    public static void connectDatabase() throws SQLException {
+    public static void select1() throws SQLException {
         String JDBC_URL = "jdbc:mysql://47.102.40.68:3306/learnjdbc?useSSL=false&characterEncoding=utf8";
         String JDBC_USER = "little-java";
         String JDBC_PASSWORD = "little-java@mysql";
@@ -34,7 +34,7 @@ public class GDBCSelect {
         }
     }
 
-    public static void connectDatabase2() throws SQLException {
+    public static void select2() throws SQLException {
         String JDBC_URL = "jdbc:mysql://47.102.40.68:3306/learnjdbc?useSSL=false&characterEncoding=utf8";
         String JDBC_USER = "little-java";
         String JDBC_PASSWORD = "little-java@mysql";
